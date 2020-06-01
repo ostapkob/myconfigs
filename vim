@@ -1,6 +1,6 @@
-" function! Backgr()
-"     set background=light
-" endfunction
+function SetNoWrap()
+    set nowrap!
+endfunction
 
 if has("gui_running") " GUI mode
     set guioptions-=T   " remove useless toolbar
@@ -189,7 +189,7 @@ vnoremap <silent>_ :m <-2<CR>gv=gv " move visual selection up
 nnoremap <c-z> :u<CR>  "отменить проблемное сочетание клавиш
 inoremap <c-z> <c-o>:u<CR>
 nnoremap <space> za  " Enable folding with the spacebar
-" map <c-u> :call Backgr()<cr>
+map <c-i> :call SetNoWrap()<cr>
 
 "Arduimo
 nnoremap <buffer> <leader>am :ArduinoVerify<CR>
