@@ -1,11 +1,13 @@
 function SetNoWrap()
-    set nowrap!
+    set wrap!
 endfunction
 
 if has("gui_running") " GUI mode
     set guioptions-=T   " remove useless toolbar
     set guioptions+=c   " prefer console dialogs to popups
     set guioptions-=m " По умолчанию меню скрыто
+    set guioptions-=r  " remove right-hand scroll bar
+    set guioptions-=L  " remove left-hand scroll bar
     set guifont=Monospace\ 9 " Устанавливаем шрифт
 endif
 if has('win32') || has('win64')                                                               
@@ -71,7 +73,8 @@ set shiftround "отступ как предыдущий
 set smartcase "включиь умный регистр
 set smarttab "Более умные отступы при вставке их с помощью tab.
 set softtabstop=4 "количество пробелов, которыми символ табуляции отображается при добавлении.
-set spell "включить проверку орфографии
+"set spell "включить проверку орфографии
+set showtabline=0 "Отключаем панель табов (окошки FTW)
 set t_vb= "Не пищать!
 set tabstop=4 "количество пробелов, которыми символ табуляции отображается
 set termencoding=utf-8 "Кодировка терминала
@@ -80,7 +83,7 @@ set visualbell "Включает виртуальный звонок (морга
 set undolevels=1000 " boost undo levels
 set whichwrap=b,s,<,>,[,],l,h "Перемещать курсор на следующую строку при нажатии на клавиши вправо-влево и
 set wildignore+=.pyc,.swp "игнорировать файлы
-set wrap "Включить перенос строк
+set wrap linebreak nolist "Включить перенос строк
 set wildmenu "Display command line’s tab complete options as a menu.
 
 syntax on
@@ -96,34 +99,34 @@ Plug 'davidhalter/jedi-vim'
 Plug 'jonathanfilip/vim-lucius' "color sheme
 Plug 'flazz/vim-colorschemes'
 Plug 'kien/ctrlp.vim' "не четкий поиск ctrl+p
-" Plug 'lpenz/vimcommander' "дерево каталогов
 Plug 'mattn/emmet-vim' 
 Plug 'majutsushi/tagbar' "навигация по класам и функциям
 Plug 'matze/vim-move' " переместить кусок кода Alt+J
 Plug 'morhetz/gruvbox' "color sheme
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree' "дерево каталогов
 Plug 'stevearc/vim-arduino'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive' "git
+Plug 'tpope/vim-commentary'   "comment по gc
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tell-k/vim-autopep8'
-Plug 'tpope/vim-commentary'   "comment по gc
-Plug 'w0rp/ale' "Проверка синтаксиса  ??????????????????????
+"Plug 'w0rp/ale' "Проверка синтаксиса  ??????????????????????
 Plug 'Yggdroot/indentLine' "Красивые табы |¦
 Plug 'vim-syntastic/syntastic' "c++
 Plug 'xavierd/clang_complete' "c++
-Plug 'frazrepo/vim-rainbow'
+"Plug 'frazrepo/vim-rainbow' "dont work with *.vue
 Plug 'xolox/vim-misc' "for colorschemes
 Plug 'xolox/vim-colorscheme-switcher' "switche color
 "Plug 'jiangmiao/auto-pairs' "авто кавычки
-
+Plug 'posva/vim-vue'
 
 call plug#end()
 
 filetype on
 filetype plugin on
+filetype indent on
 filetype plugin indent on
 
 set wildignore=.git,.hg,
@@ -189,9 +192,15 @@ vnoremap <silent>_ :m <-2<CR>gv=gv " move visual selection up
 nnoremap <c-z> :u<CR>  "отменить проблемное сочетание клавиш
 inoremap <c-z> <c-o>:u<CR>
 nnoremap <space> za  " Enable folding with the spacebar
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 map <c-i> :call SetNoWrap()<cr>
 
-"Arduimo
+
+
+
+
+"Arduino
 nnoremap <buffer> <leader>am :ArduinoVerify<CR>
 nnoremap <buffer> <leader>au :ArduinoUpload<CR>
 nnoremap <buffer> <leader>ad :ArduinoUploadAndSerial<CR>
@@ -232,7 +241,7 @@ autocmd FileType python setlocal completeopt-=preview
 "<<<<<<<<<COLOR<<<<<<<<<<
 let g:rainbow_active = 1
 colorscheme brogrammer
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme lucius
 set background=dark
     " let g:airline_theme='dark' "'powerlineish'
@@ -256,6 +265,12 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let g:ale_linters = {'python': ['flake8']}
 let g:ale_linters = {'python': ['Autopep8']}
+
+
+
+"<<<<<<<<<<<<<<<< VUE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+"let g:vim_vue_plugin_load_full_syntax = 1
+"let g:vim_vue_plugin_use_pug =1
 
 "<<<<<<<<<<<<<<<<PYTHON MODE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 let python_highlight_all = 1
