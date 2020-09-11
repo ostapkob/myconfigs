@@ -61,7 +61,7 @@ set noswapfile "Отключить создание свапа
 set visualbell "Не мигать
 set nowrapscan "Останавливать поиск при достижении конца файла
 set nowritebackup "Отключить создание файлов бекапа на запись
-set nowrap "перенос строки
+set wrap! "перенос строки
 set nrformats-=octal "Воспринимать восьмеричное как десятичное при увеличении чисел.
 set number relativenumber "подвижные относительные номера строк
 set scrolloff=4 "Количество строк экрана, которые нужно держать выше и ниже курсора.
@@ -91,6 +91,7 @@ syntax enable
 
 call plug#begin(g:plugged_home)
 Plug 'airblade/vim-gitgutter' "git simvols
+Plug 'ap/vim-css-color' 
 Plug 'bling/vim-airline' "цветная менюшка airline
 Plug 'chriskempson/base16-vim' "Терминальные Темы ?
 Plug 'easymotion/vim-easymotion' "изи моушен
@@ -223,6 +224,7 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeShowBookmarks=1
+let g:NERDTreeWinSize=20
 " let NERDTreeQuitOnOpen=1
 
 "<<<<<<<<<JEDI<<<<<<<<<<
