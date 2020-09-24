@@ -122,6 +122,7 @@ Plug 'xolox/vim-misc' "for colorschemes
 Plug 'xolox/vim-colorscheme-switcher' "switche color
 "Plug 'jiangmiao/auto-pairs' "авто кавычки
 Plug 'posva/vim-vue'
+Plug 'leafOfTree/vim-vue-plugin'
 
 call plug#end()
 
@@ -271,7 +272,7 @@ let g:ale_linters = {'python': ['Autopep8']}
 
 
 "<<<<<<<<<<<<<<<< VUE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-"let g:vim_vue_plugin_load_full_syntax = 1
+let g:vim_vue_plugin_load_full_syntax = 1
 "let g:vim_vue_plugin_use_pug =1
 
 "<<<<<<<<<<<<<<<<PYTHON MODE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
