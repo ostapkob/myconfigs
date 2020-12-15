@@ -1,0 +1,89 @@
+# All SpaceVim option below [option] section
+[options]
+  # set spacevim theme. by default colorscheme layer is not loaded,
+  # if you want to use more colorscheme, please load the colorscheme
+  # layer
+  colorscheme = "gruvbox"
+  colorscheme_bg = "dark"
+  # Disable guicolors in basic mode, many terminal do not support 24bit
+  # true colors
+  enable_guicolors = false
+  # Disable statusline separator, if you want to use other value, please
+  # install nerd fonts
+  statusline_separator = "arrow"
+  statusline_inactive_separator = "arrow"
+  buffer_index_type = 4
+  windows_index_type = 3
+  enable_tabline_filetype_icon = true
+  enable_statusline_mode = false
+  statusline_unicode_symbols = false
+  # Enable vim compatible mode, avoid changing origin vim key bindings
+  vimcompatible = true
+  windows_leader = ''
+  windows_smartclose = ''
+  enable_vimfiler_gitstatus = true
+  filetree_direction = "left"
+
+# Enable autocomplete layer
+[[layers]]
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "cycle"
+
+[[layers]]
+  name = "lang#python"
+  format_on_save = 1
+
+[[layers]]
+  name = 'lang#c'
+  enable_clang_syntax_highlight = true
+
+[[layers]]
+  name = "lang#vue"
+
+[[layers]]
+  name = "lang#javascript"
+
+[[layers]]
+  name = "lang#java"
+  java_fomatter_jar = '/home/ostap/Soft/google-java-format-1.9.jar'
+
+[[layers]]
+  #https://download.eclipse.org/jdtls/milestones/0.9.0/
+  name = "lsp"
+  filetypes = [ "java" ]
+  [layers.override_cmd]
+    java = [
+    "java",
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=true",
+    "-Dlog.level=NONE",
+    "-noverify",
+    "-Xmx1G",
+    "-jar",
+     "/home/ostap/Soft/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar",
+    "-configuration",
+    "/home/ostap/Soft/jdt-language-server/config_linux",
+    "-data",
+    "/home/ostap/Soft/.cache/javalsp"
+    ]
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+# [[layers]]
+#   name = "lang#html"
+
+[[custom_plugins]]
+    repo = "lilydjwg/colorizer"
+    repo = "posva/vim-vue"
+    repo = "easymotion/vim-easymotion"
+    repo = "ap/vim-css-color"
+    repo = "mattn/emmet-vim"
+    repo = "tpope/vim-commentary"
+    merged = false
+
