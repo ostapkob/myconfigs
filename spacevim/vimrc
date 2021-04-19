@@ -1,0 +1,45 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if 1
+    let g:_spacevim_if_lua = 0
+    if has('lua')
+        if has('win16') || has('win32') || has('win64')
+            let s:plugin_dir = fnamemodify(expand('<sfile>'), ':h').'\lua'
+            let s:str = s:plugin_dir . '\?.lua;' . s:plugin_dir . '\?\init.lua;'
+        else
+            let s:plugin_dir = fnamemodify(expand('<sfile>'), ':h').'/lua'
+            let s:str = s:plugin_dir . '/?.lua;' . s:plugin_dir . '/?/init.lua;'
+        endif
+        silent! lua package.path=vim.eval("s:str") .. package.path
+        if empty(v:errmsg)
+            let g:_spacevim_if_lua = 1
+        endif
+    endif
+    execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/main.vim'
+endif
+" vim:set et sw=2
+
+
+imap jf <Esc>
+" let g:mapleader = ','
+" let maplocalleader=","  " change local leader key to ,
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+inoremap <leader>, <C-x><C-o>
+nmap gn :bn<cr>
+nmap gp :bp<cr>
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
+
+nnoremap <silent> ,q :q<CR>
+" inoremap <silent> ,q <ESC>:q<CR>
+let g:user_emmet_expandabbr_key = '<C-e>'
+" set clipboard+=unnamedplus
+
+noremap ,y "+y
+noremap ,p "+p
+noremap ,Y "+y
+noremap ,P "+p
+

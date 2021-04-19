@@ -24,6 +24,9 @@
   enable_vimfiler_gitstatus = true
   filetree_direction = "left"
 
+[[layers]]
+  name = "colorscheme"
+
 # Enable autocomplete layer
 [[layers]]
   name = 'autocomplete'
@@ -47,6 +50,8 @@
 [[layers]]
   name = "lang#java"
   java_fomatter_jar = '/home/ostap/Soft/google-java-format-1.9.jar'
+[[layers]]
+  name = "git"
 
 [[layers]]
   #https://download.eclipse.org/jdtls/milestones/0.9.0/
